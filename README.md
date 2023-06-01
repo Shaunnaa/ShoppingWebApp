@@ -7,5 +7,5 @@ for backend require to
 ```
 pip install fastapi
 pip install uvicorn
-pip intall python-multipart
+pip install python-multipart
 ```
