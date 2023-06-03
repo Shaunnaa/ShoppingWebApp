@@ -10,21 +10,24 @@ router = APIRouter(
 user_db = [
     {
         "name": "Alice",
-        "age": 22
+        "email": "aliceiscute@test.com"
     },
     {
         "name": "BOB",
-        "age": 24
+        "email": "bobboo@test.com"
     },
     {
         "name": "John",
-        "age": 27
+        "email": "johnjonh@test.com"
     }
 ]
 
 class User(BaseModel):
     name: str
-    age: int
+    email: str
+    # age: int
+    password: str
+
 
 @router.get("/")
 async def get_users():
