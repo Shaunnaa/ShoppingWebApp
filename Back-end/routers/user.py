@@ -33,13 +33,18 @@ async def get_users():
 
 @router.get("/{user_id}") # get user by id
 async def get_user_id(user_id: int):
-    return user_db[user_id-1]
+    if 1 <= user_id <= len(user_db):
+        return user_db[user_id-1]
+    else:
+        return {"message": "User not found"}
 
 @router.get("/name/{user_name}") # get user by name
 async def get_user_name(user_name: str):
     for user in user_db:
         if (user['name'] == user_name):
             return user
+    
+    return {"message": "User not found"}
 
 @router.post("/") #create new user
 async def create_user(user: User):
