@@ -19,7 +19,7 @@ function App() {
       <div className="Formvalue">
         <form action=""> 
         <div className="tag">
-          <div className="login"><button><Link to="/Login" ></Link>Log in</button></div>
+          <div className="login"><button><Link to="/" ></Link>Log in</button></div>
           <div className="signup"><button>Sign up</button></div>
         </div>
         <div className="image">
