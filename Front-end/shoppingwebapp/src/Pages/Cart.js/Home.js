@@ -6,6 +6,9 @@ import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import './Home.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+//import img1 from './Image/shop.png';
+
+
 function App() {
   const [title, setTitle] = useState('username');
   const [mail, setMail] = useState('Email');
@@ -20,6 +23,7 @@ function App() {
           <div className="signup"><button>Sign up</button></div>
         </div>
         <div className="image">
+         
         </div>
         <div className="group1">
           <div className="username">
