@@ -1,13 +1,293 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+section{
+ 
+  position: relative;
+  width: 1512px;
+  height: 982px;
+
+  background: #FFF6ED;
+}
+.buttonleft {
+  position: absolute;
+width: 264px;
+height: 334px;
+left: 40px;
+top: 230px;
+}
+.Homy button{
+  
+  position: absolute;
+  width: 264px;
+  height: 70px;
+  left: 10px;
+  top:0px;
+  background: #FFFFFF;
+  border-radius: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: #000000;
+  
+}
+.Status button{
+  position: absolute;
+  width: 264px;
+height: 70px;
+left: 10px;
+top: 88px;
+
+background: rgba(255, 255, 255, 0.5);
+border-radius: 40px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: #000000;
+}
+.Favorite button{
+  position: absolute;
+  width: 264px;
+height: 70px;
+left: 10px;
+top: 176px;
+
+background: rgba(255, 255, 255, 0.5);
+border-radius: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: #000000;
+}
+.Seller button{
+  position: relative;
+  width: 264px;
+height: 70px;
+left: 10px;
+top: 264px;
+
+background: rgba(255, 255, 255, 0.5);
+border-radius: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: #000000;
+}
+.imageclothes{
+  
+position: absolute;
+width: 346px;
+height: 388px;
+left: -2px;
+top: 610px;
+
+background: url("C:\Users\jinjutha\Downloads\shop-2 1.png");
+}
+.imagecircle {
+  position: relative;
+width: 394px;
+height: 365px;
+left: -126px;
+top: -65px;
+opacity: 0.3;
+background: rgba(244, 201, 158, 0.7);
+border-radius: 50%;
+}
+.rectangle5 {
+  position: absolute;
+width: 346px;
+height: 982px;
+left: 0px;
+top: 0px;
+opacity:0.2;
+background: #EDAE6D;
+}
+.Frame1 {
+  position: absolute;
+width: 905px;
+height: 115px;
+left: 344px;
+top: 0px;
+
+background: rgba(237, 174, 109, 0.61);
+border-radius: 0px 50px 50px 0px;
+}
+.search {
+  position: absolute;
+width: 715px;
+height: 46px;
+left: 102px;
+top: 33px;
+
+background: #FFFFFF;
+border-radius: 80px;
+
+
+}
+.search2 {
+  /* Search */
+
+  position: absolute;
+  width: 67px;
+  height: 24px;
+  left: 24px;
+  top: 45px;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  
+  color: #000000;
+
+
+}
+.cart button{
+  /* shopping-cart 1 */
+
+position: absolute;
+width: 35px;
+height: 35px;
+left: 840px;
+top: 39px;
+border: none;
+background: url("C:\Users\jinjutha\Downloads\shopping-cart 1.png");
+
+}
+.rectangle11 {
+  /* Rectangle 11 */
+
+position: absolute;
+width: 1110px;
+height: 292px;
+left: 368px;
+top: 131px;
+
+background: #ECECEC;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 40px;
+
+}
+.rectangle12{
+  /* Rectangle 12 */
+
+position: absolute;
+width: 1110px;
+height: 513px;
+left: 368px;
+top: 455px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 40px;
+}
+.rec1 {
+  /* Rectangle 22 */
+
+  position:relative;
+width: 188px;
+height: 148px;
+left: 1255px;
+top: 820px;
+
+background: #D9D9D9;
+
+}
+.recommend {
+  /* Recommend */
+
+position: absolute;
+width: 221px;
+height: 44px;
+left: 435px;
+top: 479px;
+
+
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+
+color: #000000;
+
+
+}
+.Pro{
+  /* Promotion */
+
+position: absolute;
+width: 183px;
+height: 44px;
+left: 435px;
+top: 141px;
+
+
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+
+color: #000000;
+
+
+}
+.usernameblog{
+  /* Rectangle 9 */
+
+position: absolute;
+width: 215px;
+height: 89px;
+left: 1263px;
+top: 19px;
+
+background: #D9D9D9;
+border-radius: 30px;
+
+}
+.circle{
+  /* image 8 */
+
+position: absolute;
+width: 52px;
+height: 52px;
+left: 1286px;
+top: 37px;
+
+background: url("C:\Users\jinjutha\Downloads\image 8.png");
+
+}
+.user label{
+  /* Name */
+
+position: relative;
+width: 56px;
+height: 24px;
+left: 1360px;
+top: 44px;
+
+
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+
 }
