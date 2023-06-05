@@ -6,7 +6,7 @@ import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import './Home.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-//import img1 from './Image/shop.png';
+import img1 from '../../Image/shop.png';
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <div className="signup"><button>Sign up</button></div>
         </div>
         <div className="image">
-         
+        <img className="home" src={img1}></img>
         </div>
         <div className="group1">
           <div className="username">
