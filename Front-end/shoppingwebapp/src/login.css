@@ -1,11 +1,6 @@
-.App {
-    position: fixed;
-    width: 1512px;
-    height: 982px;
-    background: #FFF6ED;
-  }
-  
-  .form-container, .Login-email, .Login-pass{
+
+  .form-container.Login-email, .Login-pass{
+    position:absolute;
     display: flex;
     
   }

@@ -44,6 +44,12 @@ const All = () => {
           </div>
          <div className="circle"></div>
         </div>
+        <div className="blogbig">
+          <div className="box1"></div>
+          <div className="box2"></div>
+          <div className="box3"></div>
+          <div className="box4"></div>
+        </div>
       </section> );
 }
  
