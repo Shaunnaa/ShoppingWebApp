@@ -1,0 +1,116 @@
+.App {
+    position: flex;
+    width: 1512px;
+    height: 982px;
+    background: #FFF6ED;
+  }
+
+.Forget-email{
+    position: absolute;
+    width: 310px;
+    height: 24px;
+    left: 945px;
+    top: 479px;
+
+  
+    border-bottom: 2px solid #0a0707;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+  
+    color: #000000;
+
+  }
+
+input{
+    border:none;
+    background-color: #FFF6ED;
+  }
+
+.head{
+    position: absolute;
+    width: 500px;
+    height: 58px;
+    left: 1000px;
+    top: 248px;
+  
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    color: #EDAE6D;
+    text-decoration: underline;
+    background: none;
+    border:none;
+}
+.passagain{
+    position: absolute;
+    width: 920px;
+    height: 894px;
+    left: -5px;
+    top: 44px;
+}
+
+.user1{
+    position: absolute;
+    width: 31px;
+    height: 32px;
+    left: 942px;
+    top: 413px;
+}
+
+.kuay{
+    position: absolute;
+width: 85px;
+height: 39px;
+left: 984px;
+top: 409px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 39px;
+/* identical to box height */
+
+color: #000000;
+}
+
+.back{
+    position: absolute;
+width: 75px;
+height: 24px;
+left: 942px;
+top: 568px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+border: none;
+text-decoration: underline;
+
+color: #B5B5B5;
+}
+
+.submit{
+    position: absolute;
+    width: 123px;
+    height: 50px;
+    left: 1327px;
+    top: 555px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    
+    border-color:#FFF6ED; 
+    background: #EDAE6D;
+    border-radius: 40px;  
+}
