@@ -10,11 +10,14 @@ function App() {
     <Router>
       <div className="content">
         <Switch>
-          <Route exact path="/">
-            <All></All>
+          <Route exact path="/Login">
+            <Login></Login>
           </Route>
-          <Route path="/Ho">
+          <Route exact path="/Signin">
             <Home/>
+          </Route>
+          <Route  exact path="/Shop">
+            <All></All>
           </Route>
         </Switch>
       </div>

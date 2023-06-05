@@ -19,7 +19,7 @@ function App() {
       <div className="Formvalue">
         <form action=""> 
         <div className="tag">
-          <div className="login"><button>Log in</button></div>
+          <div className="login"><button><Link to="/Login" ></Link>Log in</button></div>
           <div className="signup"><button>Sign up</button></div>
         </div>
         <div className="image">
@@ -27,7 +27,6 @@ function App() {
         </div>
         <div className="group1">
           <div className="username">
-            
           <CiUser/><p>Username</p>
           <input type="username" required   onChange={(e)=> setTitle(e.target.value) }></input>
         
@@ -42,9 +41,10 @@ function App() {
           <input type="password" required  ></input>
           
         </div>
-        <div className="butt">
-            <button>Sign up</button>
-            </div>
+        <button className="butt" type="submit">
+            <Link to="/Shop" style={{
+                    color: "white" }}>Sign up</Link>
+            </button>
         
       </div>
       </form>

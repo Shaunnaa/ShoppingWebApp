@@ -14,7 +14,9 @@ const All = () => {
     return (  <section>
         <div className="Blogs">
           <div className="buttonleft">
-            <div className="Homy"><button><Link to="/Ho"> <BiHomeHeart></BiHomeHeart>Home</Link>  </button></div>
+            <div className="Homy">
+              <button><Link to="/Ho"> <BiHomeHeart></BiHomeHeart>Home</Link></button>
+            </div>
             <div className="Status"><button > <RiArchiveLine></RiArchiveLine>  Status </button></div>
             <div className="Favorite"><button> <RiHeart3Line></RiHeart3Line>  Favourite </button></div>
             <div className="Seller"><button > <RiTeamLine></RiTeamLine>  Seller </button></div>
@@ -39,7 +41,6 @@ const All = () => {
          <div className="recommend">Recommend</div>
          <div className="Pro">Promotion</div>
          <div className="usernameblog">
-         <button><Link to="/Ho"> <BiHomeHeart></BiHomeHeart>Home</Link>  </button>
           </div>
          <div className="circle"></div>
         </div>

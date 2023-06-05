@@ -2,7 +2,7 @@ import React,{ useState} from "react";
 import img1 from './img/shop_1.png';
 import img2 from './img/user_1.png';
 import img3 from './img/pass_1.png';
-
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Login = (props) =>{
     const [email,setEmail]=useState ('');  
@@ -16,7 +16,8 @@ export const Login = (props) =>{
         
         <div className="form-container">
             
-            <button className="button-signup">Sign up</button>
+            <button className="button-signup"><Link to="/Signin"style={{
+                    color: "#B5B5B5" }}>Sign up</Link> </button>
             <button className="button-login">Login</button>
         <form className="Login-email" onSubmit={handleSubmit}>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" required placeholder=" Username/Email       " id="email" name="email"/>

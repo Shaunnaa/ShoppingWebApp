@@ -1,5 +1,5 @@
 .App {
-    position: relative;
+    position: fixed;
     width: 1512px;
     height: 982px;
     background: #FFF6ED;
@@ -78,52 +78,68 @@
   
   .button-signup{
     position: absolute;
-    width: 200px;
+    width: 175px;
     height: 58px;
     left: 1236px;
     top: 277px;
-  
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 58px;
-    color: #B5B5B5;
-    text-decoration: underline;
-    background: none;
-    border:none;
-  
+  border-radius: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 600;
+  text-decoration: underline;
+  /* identical to box height */
+  color: #B5B5B5;
+
+  /* Sign up */
+
+/* identical to box height */
+
+
+
+
+/* Sign up *//* Sign up */
+
   }
   
   .button-login{
-    position: absolute;
-    width: 129px;
-    height: 58px;
-    left: 1006px;
-    top: 276px;
-  
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 58px;
-    color: #EDAE6D;
-    text-decoration: underline;
-    background: none;
-    border:none;
+    
+position: absolute;
+width: 129px;
+height: 58px;
+left: 1006px;
+top: 276px;
+
+/* identical to box height */
+
+color: #EDAE6D;
+
+
+  border-radius: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 600;
+  text-decoration: underline;
     
   }
   
   .shop1{
+    /* shop 1 */
     position: absolute;
     width: 858px;
-    height: 1069px;
-    left: 0px;
-    top: -44px;
+    height: 982px;
+    left: 1px;
+    top: 0px;
+  
   }
   
   .user1{
-    position: absolute;
+    position: relative;
     width: 31px;
     height: 31px;
     left: 950.01px;
