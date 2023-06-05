@@ -1,6 +1,12 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1"
+=======
+    "react": "^18.2.0",
+    "react-icons": "^4.9.0",
+    "react-router-dom": "^5.2.0"
+>>>>>>> 8795ea0438f8577e730f10fbd936e8c30ad5df0c
   }
 }
