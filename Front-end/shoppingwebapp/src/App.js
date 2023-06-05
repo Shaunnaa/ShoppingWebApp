@@ -13,17 +13,13 @@ function App() {
           <Route exact path="/Login">
             <Login></Login>
           </Route>
-          <Route exact path="/Signin">
+          <Route path="/Signin">
             <Home/>
           </Route>
-          <Route  exact path="/Shop">
+          <Route  path="/Shop">
             <All></All>
           </Route>
         </Switch>
-      </div>
-
-      <div className="App">
-        <Login />
       </div>
     </Router>
     
