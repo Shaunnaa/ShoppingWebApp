@@ -7,7 +7,8 @@ import { RiHeart3Line } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { RiTeamLine } from "react-icons/ri";
 import { TbUserCircle } from "react-icons/tb";
-
+import img1 from './Image/shop-2 1.png';
+import img2 from './Image/shopping-cart 1.png';
 
 const All = () => {
     return (  <section>
@@ -19,13 +20,14 @@ const All = () => {
             <div className="Seller"><button > <RiTeamLine></RiTeamLine>  Seller </button></div>
           </div>
           <div className="imageclothes">
+          <img className="Clothes" src={img1}></img>
           </div>
           <div className="imagecircle"></div>
           <div className="rectangle5"></div>
           <div className="Frame1"> 
             <div className="search"></div>
             <div className="search2">Search</div>
-            <div className="cart"><button></button></div>
+            <div className="cart"><button><img className="cart" src={img2}></img></button></div>
           </div>
           <div className="rectangle11"></div>
           <div className="rectangle12"></div>

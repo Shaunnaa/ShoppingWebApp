@@ -94,7 +94,6 @@ height: 388px;
 left: -2px;
 top: 610px;
 
-background: url("C:\Users\jinjutha\Downloads\shop-2 1.png");
 }
 .imagecircle {
   position: relative;
@@ -165,7 +164,7 @@ height: 35px;
 left: 840px;
 top: 39px;
 border: none;
-background: url("C:\Users\jinjutha\Downloads\shopping-cart 1.png");
+background: none;
 
 }
 .rectangle11 {
@@ -269,7 +268,7 @@ height: 52px;
 left: 1286px;
 top: 37px;
 
-background: url("C:\Users\jinjutha\Downloads\image 8.png");
+
 
 }
 .user label{
