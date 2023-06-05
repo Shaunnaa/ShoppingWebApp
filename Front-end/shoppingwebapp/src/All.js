@@ -1,4 +1,4 @@
-
+import React from 'react';
 import './App.css';
 import { BiHomeHeart } from "react-icons/bi";
 import { BiFolderMinus } from "react-icons/bi";
@@ -11,7 +11,16 @@ import img1 from './Image/shop-2 1.png';
 import img2 from './Image/shopping-cart 1.png';
 
 const All = () => {
-    return (  <section>
+  const renderBoxes = () => {
+    const boxes = [];
+    for (let i = 0; i < 5; i++) {
+      boxes.push(<div key={i} className="box"></div>);
+    }
+    return boxes;
+  };
+
+    return (  
+      <section>
         <div className="Blogs">
           <div className="buttonleft">
             <div className="Homy">
@@ -32,19 +41,17 @@ const All = () => {
             <div className="cart"><button><img className="cart" src={img2}></img></button></div>
           </div>
           <div className="rectangle11"></div>
-          <div className="rectangle12"></div>
-          <div className="rec1"></div>
-          <div className="rec2"></div>
-          <div className="rec3"></div>
-          <div className="rec4"></div>
-          <div className="rec5"></div>
+          <div className="rectangle12">
+            <div className="row">{renderBoxes()}</div>
+          </div>
          <div className="recommend">Recommend</div>
          <div className="Pro">Promotion</div>
          <div className="usernameblog">
           </div>
          <div className="circle"></div>
         </div>
-      </section> );
+      </section> 
+      );
 }
  
 export default All;
