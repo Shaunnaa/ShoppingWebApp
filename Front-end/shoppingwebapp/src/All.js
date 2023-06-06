@@ -42,7 +42,7 @@ const All = () => {
           </div>
           <div className="rectangle11"></div>
           <div className="rectangle12">
-            <div className="row">{renderBoxes()}</div>
+            {/* <div className="row">{renderBoxes()}</div> */}
           </div>
          <div className="recommend">Recommend</div>
          <div className="Pro">Promotion</div>
@@ -50,18 +50,8 @@ const All = () => {
           </div>
          <div className="circle"></div>
         </div>
-<<<<<<< HEAD
-      </section> 
-      );
-=======
-        <div className="blogbig">
-          <div className="box1"></div>
-          <div className="box2"></div>
-          <div className="box3"></div>
-          <div className="box4"></div>
-        </div>
       </section> );
->>>>>>> ae03284c73db3f60d2d107c16efee5b8e5b32ad3
+
 }
  
 export default All;

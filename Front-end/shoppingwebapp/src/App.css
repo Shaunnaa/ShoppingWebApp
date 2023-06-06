@@ -40,8 +40,12 @@
 .rectangle12 .row {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 100px;
 }
+
+
 
 .rectangle12 .box {
   flex-direction: column;
@@ -49,4 +53,5 @@
   width: 100px; /* Adjust the width according to your requirements */
   height: 100px; /* Adjust the height according to your requirements */
   background-color: #f00; /* Set the background color of the box */
+
 }

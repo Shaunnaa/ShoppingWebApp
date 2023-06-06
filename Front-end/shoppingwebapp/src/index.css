@@ -184,6 +184,7 @@ border-radius: 40px;
 .rectangle12{
   /* Rectangle 12 */
 
+display: flex;
 position: absolute;
 width: 1110px;
 height: 513px;
