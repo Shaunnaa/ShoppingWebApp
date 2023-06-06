@@ -16,6 +16,9 @@ function App() {
           <Route path="/Signin">
             <Home/>
           </Route>
+          <Route  path="">
+            <All></All>
+          </Route>
           <Route  path="/Shop">
             <All></All>
           </Route>
