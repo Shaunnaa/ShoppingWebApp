@@ -1,50 +1,67 @@
 from fastapi import FastAPI
 from fastapi import APIRouter
 from pydantic import BaseModel
-from models import items
+from models import items, data
 
 app = FastAPI()
 
-products = APIRouter(
+api = APIRouter(
     prefix="/product",
     tags=["product"],
     responses={404: {"message": "Not found"}}
 )
 
-@products.get("/products")
+@api.get("/AllProducts")
 async def get_all_products():
-    return {"products": "products"}
+    return data.items
 
-@products.post("/products")
-async def add_new_product(product):
-    return {"product_name": product.name, "product_price": product.price}
+@api.post("/NewProduct")
+async def add_new_product(item: items):
+    return {"item_name": item.name, "item_price": item.original_price}
 
-@products.get("/products/{product_id}")
+
+@api.get("/GetProducts/{product_id}")
 async def get_product_by_id(product_id: int):
-    return {"product_id": product_id}
+    product = data.items.get(product_id)
+    if product:
+        return product
+    else:
+        return {"message": "Product not found"}
 
-@products.delete("/products/{product_id}")
+# @api.get("/GetProducts/{product_category}")
+# async def get_product_by_category(product_category: str):
+#     for item in data.items:
+#         if item.category == product_category:
+#             return item
+#         else:
+#             return {"message": "Category of product not found"}
+
+@api.delete("/DeleteProducts/{product_id}")
 async def delete_product_by_id(product_id: int):
     return {"product_id": product_id}
 
 
-@products.get("/cart")
+#------ cart ------
+cart = []
+
+@api.get("/cart")
 def get_cart():
-    return {"cart": "cart"}
+    return cart
 
-@products.post("/cart/add")
-def add_product_to_cart(item: items):
-    return {"item": item.name, "quantity": item.quantity}
+@api.post("/cart/add")
+def add_product_to_cart(product_id: int):
+    cart.append(data.items.get(product_id))
 
-@products.put("/cart/addquantity/{item_id}")
+@api.put("/cart/addquantity/{item_id}")
 def add_quantity_to_cart(item_id: int, quantity: int):
     return {"item_id": item_id, "quantity": quantity}
 
-@products.delete("/cart/remove/{item_id}")
+@api.delete("/cart/remove/{item_id}")
 def remove_product_from_cart(item_id: int):
-    return {"item_id": item_id}
+    cart.remove(data.items.get(item_id))
 
-@products.delete("/cart/remove/all")
+@api.delete("/cart/remove/all")
 def remove_all_products_from_cart():
-    return {"message": "All items removed from cart"}
+    cart.clear()
+
 
