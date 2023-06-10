@@ -8,7 +8,7 @@ app = FastAPI()
 
 
 app.include_router(user.router)
-app.include_router(login_re.router)
+app.include_router(login_re.app)
 app.include_router(product.api)
 
 
