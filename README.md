@@ -14,4 +14,4 @@ when every time to use the back-end api do this first
 - cd Back-end
 - source venv/bin/activate
 --------
-!! if change the url don't forget to change the tokenurl !!
+!! if the url have been changed don't forget to change the tokenurl !!
