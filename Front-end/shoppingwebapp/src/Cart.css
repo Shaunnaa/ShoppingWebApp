@@ -1,0 +1,136 @@
+.App {
+    position: relative;
+    width: 1512px;
+    height: 982px;
+    background: #FFF6ED;
+  }
+
+.orange-box{
+
+    position: bottom;
+    width: 1249px;
+    height: 115px;
+    left: 0px;
+    top: 0px;
+
+    background: rgba(237, 174, 109, 0.61);
+    border-radius: 0px 50px 50px 0px;
+    border:#FFF6ED;
+}
+
+.Textshopping{
+
+
+    position: absolute;
+    width: 255px;
+    height: 44px;
+    left: 38px;
+    top: 35px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+
+    text-decoration-color: #000000;
+
+
+    }
+
+.search-bar{
+
+    position: absolute;
+    width: 715px;
+    height: 46px;
+    left: 491px;
+    top: 35px;
+
+    background: #FFFFFF;
+    border-radius: 80px;
+    border-color:#FFFFFF; ;
+}
+
+.gray-above{
+    position: absolute;
+    width: 1341px;
+    height: 735px;
+    left: 85px;
+    top: 217px;
+
+    background: #EFEFEF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* .gray-below{
+    position: absolute;
+    width: 1341px;
+    height: 392px;
+    left: 85px;
+    top: 560px;
+
+    background: #EFEFEF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+
+.background-white{
+
+    position: absolute;
+    width: 1420px;
+    height: 806px;
+    left: 46px;
+    top: 157px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+
+}
+
+.search-img{
+
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 1169px;
+    top: 50px;
+
+    }
+
+.basket{
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    left: 303px;
+    top: 21px;
+    }
+
+.container{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    padding-top: 150px;
+    padding-inline: 227px;
+    table-layout: fixed;
+}
+
+.cart-container table{
+    border-collapse: collapse;
+    width: 100%
+}
+
+#cart-container table thead{
+    font-weight:700;
+    font-size: x-large;
+}
+
+
+
+.cart-container{
+    padding:2rem 4rem;
+}
+
+.cart-container h2{
+    font-weight: 400;
+    font-size: 38px;
+}

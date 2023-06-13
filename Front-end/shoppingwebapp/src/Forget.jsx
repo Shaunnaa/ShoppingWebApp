@@ -1,7 +1,7 @@
 import React,{ useState} from "react";
 import img2 from './Image/user 1.png';
 import img4 from './Image/padlock 1.png';
-import './Forget.css';
+import './forget.css';
 export const Forget = (props) =>{
     const [email,setEmail]=useState ('');  
     

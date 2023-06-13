@@ -24,7 +24,7 @@ const All = () => {
         <div className="Blogs">
           <div className="buttonleft">
             <div className="Homy">
-              <button><Link to="/Ho"> <BiHomeHeart></BiHomeHeart>Home</Link></button>
+              <button><Link to="/Login"> <BiHomeHeart></BiHomeHeart>Home</Link></button>
             </div>
             <div className="Status"><button > <RiArchiveLine></RiArchiveLine>  Status </button></div>
             <div className="Favorite"><button> <RiHeart3Line></RiHeart3Line>  Favourite </button></div>
@@ -38,7 +38,9 @@ const All = () => {
           <div className="Frame1"> 
             <div className="search"></div>
             <div className="search2">Search</div>
-            <div className="cart"><button><img className="cart" src={img2}></img></button></div>
+            <div className="cart">
+              <button><Link to="/Login"><img className="cart" src={img2}></img></Link> </button>
+              </div>
           </div>
           <div className="rectangle11"></div>
           <div className="rectangle12">
@@ -48,7 +50,12 @@ const All = () => {
          <div className="Pro">Promotion</div>
          <div className="usernameblog">
           </div>
-         <div className="circle"></div>
+         <div className="circle">
+
+         </div>
+         <div className="clas">
+         
+         </div>
         </div>
       </section> );
 

@@ -9,3 +9,9 @@ pip install fastapi
 pip install uvicorn
 pip install python-multipart
 ```
+--------
+when every time to use the back-end api do this first 
+- cd Back-end
+- source venv/bin/activate
+--------
+!! if the url have been changed don't forget to change the tokenurl !!
