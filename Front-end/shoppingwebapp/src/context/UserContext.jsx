@@ -14,8 +14,8 @@ export const UserProvider = (props) => {
           Authorization: "Bearer " + token,
         },
       };
-
-      const response = await fetch("/api/users/me", requestOptions);
+// /login_register/api/token
+      const response = await fetch("/login_register/api/users/me", requestOptions);
 
       if (!response.ok) {
         setToken(null);
