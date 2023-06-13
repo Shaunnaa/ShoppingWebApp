@@ -3,6 +3,7 @@ import img5 from './img/search.png';
 import img6 from './img/picnic 2.png';
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
+import './Cart.css';
 const Cart = (props) =>{
     const cart = useSelector((state)=> state.cart);
     return(

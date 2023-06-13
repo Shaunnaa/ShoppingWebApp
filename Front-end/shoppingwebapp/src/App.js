@@ -19,15 +19,16 @@ function App() {
           <Route path="/Signin">
             <Home/>
           </Route>
-          <Route  path="/">
-            <All></All>
-          </Route>
           <Route exact path="/Forget">
             <Forget/>
           </Route>
           <Route exact path="/Cart">
             <Cart></Cart>
           </Route>
+          <Route exact path="/">
+            <All></All>
+          </Route>
+          
         </Switch>
       </div>
     </Router>
