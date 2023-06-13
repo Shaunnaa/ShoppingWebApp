@@ -6,7 +6,7 @@ import All from './All';
 import './login.css';
 import {Login} from './Login';
 import Forget from './Forget';
-import cart from './cart';
+import Cart from './cart';
 function App() {
   return (
     
@@ -26,7 +26,7 @@ function App() {
             <Forget/>
           </Route>
           <Route exact path="/Cart">
-            <cart></cart>
+            <Cart></Cart>
           </Route>
         </Switch>
       </div>
