@@ -7,38 +7,44 @@ import { CiMail } from "react-icons/ci";
 import './Home.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import img1 from '../../Image/shop.png';
+import { placeholder } from '@babel/types';
+import { CiMenuBurger } from "react-icons/ci";
+import { GrDown } from "react-icons/gr";
 
 
 function App() {
   const [title, setTitle] = useState('username');
   const [mail, setMail] = useState('Email');
-  //const [pass, setPass] = useState('Password');
+  const [click, setClick] = useState(false);
+  const handleClick=()=> setClick(!click);
+  const closeMenu = () => setClick(false);
   return (
     <section>
       <div className="Form-box">
       <div className="Formvalue">
         <form action=""> 
         <div className="tag">
-          <div className="login"><button><Link to="/" ></Link>Log in</button></div>
-          <div className="signup"><button>Sign up</button></div>
+          <div className="login"><button><Link to="/" style={{
+                    color: "grey" }}>Log in</Link></button></div>
+          <div className="signup"><button><Link to="/Signin"></Link>Sign up</button></div>
         </div>
         <div className="image">
         <img className="home" src={img1}></img>
         </div>
         <div className="group1">
           <div className="username">
-          <CiUser/><p>Username</p>
-          <input type="username" required   onChange={(e)=> setTitle(e.target.value) }></input>
+          <CiUser/>
+          <input type="username" required  placeholder={title} onChange={(e)=> setTitle(e.target.value)} ></input>
         
         </div>
         <div className="username">
-           <CiMail/><p>Email</p>
-          <input type="email" required  onChange={(e)=> setMail(e.target.value) }></input>
+           <CiMail/>
+          <input type="email" required  placeholder={mail} onChange={(e)=> setMail(e.target.value)} ></input>
        
         </div>
         <div className="username">
           <CiLock></CiLock>
-          <input type="password" required  ></input>
+          <input type="password" required placeholder=" Password" ></input>
           
         </div>
         <button className="butt" type="submit">
@@ -47,6 +53,11 @@ function App() {
             </button>
         
       </div>
+      <div className="menu" onClick={handleClick}>
+        {click ? (<CiMenuBurger></CiMenuBurger>) : (<GrDown></GrDown>)}
+
+      </div>
+     
       </form>
         </div>
     </div> 

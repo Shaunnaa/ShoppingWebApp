@@ -5,36 +5,38 @@
     font-family: 'poppins',sans-serif;
 }
 section{
- 
+  display : flex;
   position: relative;
-  width: 1512px;
-  height: 982px;
-
   background: #FFF6ED;
-
-    
 }
+
 .image {
   position: absolute;
-  width: 858px;
-  height: 982px;
-  left: 1px;
-  top: 0px;
-
-  
-  }
-.tag {
+  width: 20%;
   display: flex;
-  white-space: pre-line;
+  justify-content: left;
+  align-items: center;
+  transition: scale 50 ease;
+
+  }
+.home{
+  
+  max-width: 1000px;
 }
+.tag {
+  position: absolute;
+  left: 68%;
+  top: 30%;
+  display: flex;
+  transition: scale 50 ease;
+
+}
+
 .login button{
   
-  position: absolute;
-width: 129px;
-height: 58px;
-left: 1006px;
-top: 276px;
-  border-radius: 20px;
+  margin:2vw;
+  border-width: 1000px;
+  
   background: none;
   border: none;
   outline: none;
@@ -48,12 +50,9 @@ color: #B5B5B5;
 }
 .signup button{
   
-  position: absolute;
-  width: 175px;
-  height: 58px;
-  left: 1236px;
-  top: 277px;
-border-radius: 20px;
+  
+margin: 2vw;
+border-radius: 1000px;
 background: none;
 border: none;
 outline: none;
@@ -67,13 +66,17 @@ color: #EDAE6D;
 
 
 }
+.signup button:hover {
+  scale : 0.95
+}
 .group1 {
+  
+  left:60%;
+  top: 40%;
   position: absolute;
-  width: 508.02px;
-  height: 350px;
-  left: 934px;
-  top: 409px;
-
+  justify-content: left;
+  align-items: center;
+  transition: scale 0.2 ease;
 }
 /*.Form-box{
   
@@ -89,7 +92,6 @@ color: #EDAE6D;
   align-items: center;
 }*/
 .h2{
-
   font-size: 0.875em;
   color: #0b0202;
   text-align: center;
@@ -186,4 +188,105 @@ top: 409px;
 }
 .register p a:hover{
   text-decoration: underline;
+}
+.menu{
+  display: none;
+}
+@media screen and (max-width: 480px){
+  .section{
+    width:100%;
+    height: auto;
+  }
+  .image{
+    display: none;
+  }
+  .group1{
+    width: 100%;
+    height:auto;
+    left:600px;
+    top: 400px;
+    transition: 0.5s ease;
+  }
+  .tag{
+    width: 100%;
+    height:auto;
+    top: 300px;
+    left:600px;
+    transition: 0.5s ease;
+  }
+  .menu{
+    display: contents;
+  }
+  .h2{
+
+    font-size: 2em;
+    color: #0b0202;
+    text-align: center;
+  }
+  .username{
+    position: relative;
+    margin: px 0;
+    width: 310px;
+    border-bottom: 2px solid #0a0707;
+  }
+  .username label{
+    position: absolute;
+    top: 20%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 45em;
+    pointer-events: none;
+    transition: .5s;
+  }
+  .login button{
+  
+    margin:2vw;
+    border-width: 1000px;
+    
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 3em;
+    font-weight: 600;
+  /* identical to box height */
+  
+  color: #B5B5B5;
+  /* identical to box height */
+  }
+  .signup button{
+  margin: 2vw;
+  border-radius: 1000px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 3em;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #EDAE6D;
+  }
+  section{
+    display : flex;
+    position: relative;
+    background: #ffffff;
+  }
+  .butt {
+  
+    position: absolute;
+    width: 170px;
+    height: 58px;
+    left: 275px;
+    top: 400px;
+    border-radius: 200px;
+    background: #EDAE6D;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    color: #ffffff;
+  
+  }
 }

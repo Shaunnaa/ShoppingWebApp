@@ -5,22 +5,28 @@ import Home from './Pages/Cart.js/Home';
 import All from './All';
 import './login.css';
 import {Login} from './Login';
+import Forget from './Forget';
+import cart from './cart';
 function App() {
   return (
+    
     <Router>
       <div className="content">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/Login">
             <Login></Login>
           </Route>
-          <Route path="/Signin">
+          <Route path="/Signup">
             <Home/>
           </Route>
-          <Route  path="">
+          <Route  path="/">
             <All></All>
           </Route>
-          <Route  path="/Shop">
-            <All></All>
+          <Route exact path="/Forget">
+            <Forget/>
+          </Route>
+          <Route exact path="/Cart">
+            <cart></cart>
           </Route>
         </Switch>
       </div>
