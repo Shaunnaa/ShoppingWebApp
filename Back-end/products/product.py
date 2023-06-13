@@ -50,7 +50,17 @@ def get_cart():
 
 @api.post("/cart/add")
 def add_product_to_cart(product_id: int):
-    cart.append(data.items.get(product_id))
+    cart.append(data.items.get(product_id)) #show all
+    # product = data.items.get(product_id)
+    # if product is not None:
+    #     cart.append({
+    #         "id": product.id,
+    #         "name": product.name,
+    #         "original_price": product.original_price,
+    #         "discount_price": product.discount_price,
+    #         "percent_discount": product.percent_discount,
+    #         "image": product.image
+    #     })
 
 @api.put("/cart/addquantity/{item_id}")
 def add_quantity_to_cart(item_id: int, quantity: int):
