@@ -2,6 +2,7 @@ import React,{ useState} from "react";
 import img2 from './Image/user 1.png';
 import img4 from './Image/padlock 1.png';
 import './forget.css';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 export const Forget = (props) =>{
     const [email,setEmail]=useState ('');  
     
@@ -20,7 +21,8 @@ export const Forget = (props) =>{
         <img className="user1" src={img2} alt="user1"></img>
         <label className="kuay">Email</label>
         <button className="head">Forget Password</button>
-        <button className="back" > Back </button>
+        <button className="back" ><Link to="/Login" style={{
+                    color: "grey" }}>Back</Link>  </button>
         <button className="submit" type="submit">Submit</button>
         </div>
         )

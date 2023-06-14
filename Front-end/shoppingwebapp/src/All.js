@@ -49,12 +49,13 @@ const All = () => {
          <div className="recommend">Recommend</div>
          <div className="Pro">Promotion</div>
          <div className="usernameblog">
+         
           </div>
          <div className="circle">
 
          </div>
-         <div className="clas">
-         
+         <div className="back">
+         <button><Link to="/Login"> <BiHomeHeart></BiHomeHeart></Link></button>
          </div>
         </div>
       </section> );

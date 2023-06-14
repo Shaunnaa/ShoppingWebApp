@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { BiBriefcaseAlt } from "react-icons/bi";
-import { BiAccessibility } from "react-icons/bi";
+
 import { CiUser } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
@@ -10,8 +9,10 @@ import img1 from '../../Image/shop.png';
 import { placeholder } from '@babel/types';
 import { CiMenuBurger } from "react-icons/ci";
 import { GrDown } from "react-icons/gr";
-
-
+import { BiHomeHeart } from "react-icons/bi";
+import { RiArchiveLine } from "react-icons/ri";
+import { RiHeart3Line } from "react-icons/ri";
+import { RiTeamLine } from "react-icons/ri";
 function App() {
   const [title, setTitle] = useState('username');
   const [mail, setMail] = useState('Email');
@@ -24,7 +25,7 @@ function App() {
       <div className="Formvalue">
         <form action=""> 
         <div className="tag">
-          <div className="login"><button><Link to="/" style={{
+          <div className="login"><button><Link to="/Login" style={{
                     color: "grey" }}>Log in</Link></button></div>
           <div className="signup"><button><Link to="/Signin"></Link>Sign up</button></div>
         </div>
@@ -48,14 +49,13 @@ function App() {
           
         </div>
         <button className="butt" type="submit">
-            <Link to="/Shop" style={{
+            <Link to="/" style={{
                     color: "white" }}>Sign up</Link>
             </button>
         
       </div>
       <div className="menu" onClick={handleClick}>
         {click ? (<CiMenuBurger></CiMenuBurger>) : (<GrDown></GrDown>)}
-
       </div>
      
       </form>

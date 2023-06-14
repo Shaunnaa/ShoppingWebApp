@@ -32,7 +32,8 @@ export const Login = (props) =>{
 
             <button className="button-login-down" type="submit">Login</button>
 
-            <button className="link-forget" > <Link to="/Forget">Forgot Password?</Link> </button>
+            <button className="link-forget" > <Link to="/Forget" style={{
+                    color: "grey" }}>Forgot Password?</Link> </button>
             <img className="shop1" src={img1} alt="shop1"></img>
             <img className="user1" src={img2} alt="user1"></img>
             <img className="pass1" src={img3} alt="pass1"></img>
