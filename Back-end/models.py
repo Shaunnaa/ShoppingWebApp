@@ -14,7 +14,7 @@ class items(BaseModel):
     percent_discount: int
     offer_expiration_date: datetime = datetime.utcnow()
     image: str=None
-    quantity: int
+    quantity: int = 1
 
 class data():
     items = {
@@ -27,8 +27,7 @@ class data():
             discount_price=90, 
             percent_discount=10, 
             offer_expiration_date=datetime.utcnow(), 
-            image="image1", 
-            quantity=10
+            image="image1"
             ),
 
         2: items(
@@ -40,8 +39,7 @@ class data():
             discount_price=180,
             percent_discount=10,
             offer_expiration_date=datetime.utcnow(),
-            image="image2",
-            quantity=20
+            image="image2"
             ),
 
         3: items(
@@ -53,8 +51,7 @@ class data():
             discount_price=270,
             percent_discount=10,
             offer_expiration_date=datetime.utcnow(),
-            image="image3",
-            quantity=30
+            image="image3"
             ),
         
         4: items(
@@ -66,8 +63,7 @@ class data():
             discount_price=360,
             percent_discount=10,
             offer_expiration_date=datetime.utcnow(),
-            image="image4",
-            quantity=40 
+            image="image4"
             ) 
     }
     

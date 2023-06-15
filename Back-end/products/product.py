@@ -49,29 +49,28 @@ def get_cart():
     return cart
 
 @api.post("/cart/add")
-def add_product_to_cart(product_id: int):
-    cart.append(data.items.get(product_id)) #show all
-    # product = data.items.get(product_id)
-    # if product is not None:
-    #     cart.append({
-    #         "id": product.id,
-    #         "name": product.name,
-    #         "original_price": product.original_price,
-    #         "discount_price": product.discount_price,
-    #         "percent_discount": product.percent_discount,
-    #         "image": product.image
-    #     })
+async def add_product_to_cart(product_id: int):
+    item = data.items.get(product_id)
+    if item in cart:
+        # If the item is already in the cart, increase the quantity
+        item.quantity += 1
+    else:
+        cart.append(item)
 
-@api.put("/cart/addquantity/{item_id}")
-def add_quantity_to_cart(item_id: int, quantity: int):
-    return {"item_id": item_id, "quantity": quantity}
+@api.put("/cart/removequantity/{product_id}")
+async def remove_quantity_to_cart(product_id: int):
+    item = data.items.get(product_id)
+    if item in cart and item.quantity > 1:
+        item.quantity -= 1
+    else:
+        cart.remove(item)
 
 @api.delete("/cart/remove/{item_id}")
-def remove_product_from_cart(item_id: int):
-    cart.remove(data.items.get(item_id))
+async def remove_product_from_cart(product_id: int):
+    cart.remove(data.items.get(product_id))
 
 @api.delete("/cart/remove/all")
-def remove_all_products_from_cart():
+async def remove_all_products_from_cart():
     cart.clear()
 
 
