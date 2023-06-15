@@ -1,77 +1,36 @@
-import React, { useContext, useEffect, useState } from "react";
+
 import './App.css';
-import { BrowserRouter as Router,Route, Switch, Redirect} from 'react-router-dom';
-import Signin from './Pages/Cart.js/Signin';
+import { BrowserRouter as Router,Route, Switch} from 'react-router-dom';
+import Home from './Pages/Cart.js/Home';
 import All from './All';
 import './login.css';
 import {Login} from './Login';
 import Forget from './Forget';
 import Cart from './cart';
-import { UserContext } from './context/UserContext';
 
 function App() {
-  const [message, setMessage] = useState("");
-  const [token] = useContext(UserContext);
-
-  const getWelcomeMessage = async() =>{
-    const requestOption = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    };
-    const response = await fetch("/login_register/api", requestOption);
-    const data = await response.json();
-
-    if (!response.ok){
-      console.log("something messed up");
-    } else {
-      setMessage(data.message);
-    }
-  };
-
-  useEffect(() => {
-    getWelcomeMessage();
-  },[])
-
   return (
     
     <Router>
       <div className="content">
         <Switch>
           <Route exact path="/Login">
-            {/* <Login></Login> */}
-            {
-              !token ? (
-                <Login></Login> 
-              ) : (
-                <Redirect to="/" />
-                // <All></All>
-              )
-        }
+            <Login></Login>
           </Route>
           <Route exact path="/Signin">
-            {/* <Signin/> */}
-            {
-              !token ? (
-                <Signin /> 
-              ) : (
-                <Redirect to="/" />
-                // <All></All>
-              )
-        }
+            <Home/>
           </Route>
           <Route exact path="/Forget">
             <Forget/>
           </Route>
           <Route exact path="/Cart">
-            <Cart></Cart>
+            <Cart/>
           </Route>
           <Route exact path="/">
             <All></All>
           </Route>
+          
         </Switch>
-        
       </div>
     </Router>
     
