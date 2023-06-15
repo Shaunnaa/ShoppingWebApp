@@ -7,6 +7,7 @@ import './login.css';
 import {Login} from './Login';
 import Forget from './Forget';
 import Cart from './cart';
+
 function App() {
   return (
     
@@ -23,7 +24,7 @@ function App() {
             <Forget/>
           </Route>
           <Route exact path="/Cart">
-            <Cart></Cart>
+            <Cart/>
           </Route>
           <Route exact path="/">
             <All></All>
