@@ -57,7 +57,7 @@ function App() {
     <section>
       <div className="Form-box">
       <div className="Formvalue">
-        <form action=""> 
+        <form action="" onSubmit={handleSubmit}> 
         <div className="tag">
           <div className="login"><button><Link to="/Login" style={{
                     color: "grey" }}>Log in</Link></button></div>
