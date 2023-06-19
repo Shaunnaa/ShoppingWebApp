@@ -6,7 +6,7 @@ import All from './All';
 import './login.css';
 import {Login} from './Login';
 import Forget from './Forget';
-import Cart from './cart';
+import Cartfix from './Cart/Cartfix';
 import { UserContext } from "./context/UserContext";
 
 function App() {
@@ -67,8 +67,8 @@ function App() {
           <Route exact path="/Forget">
             <Forget/>
           </Route>
-          <Route exact path="/Cart">
-            <Cart/>
+          <Route exact path="/Cartfix">
+            <Cartfix/>
           </Route>
           <Route exact path="/">
             <All></All>
