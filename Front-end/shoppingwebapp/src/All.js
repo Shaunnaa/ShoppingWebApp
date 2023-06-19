@@ -39,7 +39,7 @@ const All = () => {
             <div className="search"></div>
             <div className="search2">Search</div>
             <div className="cart">
-              <button><Link to="/Cart"><img className="cart" src={img2}></img></Link> </button>
+              <button><Link to="/Cartfix"><img className="cart" src={img2}></img></Link> </button>
               </div>
           </div>
           <div className="rectangle11"></div>
