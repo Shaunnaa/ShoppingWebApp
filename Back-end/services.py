@@ -127,3 +127,15 @@ async def update_lead(lead_id: int, lead: _schemas.LeadCreate, user: _schemas.Us
     db.refresh(lead_db)
 
     return _schemas.Lead.from_orm(lead_db)
+
+async def get_allproduct(user: _schemas.User, db: _orm.Session):
+    items = db.query(_models.Item).filter_by(owner_id=user.id)
+
+    return list(map(_schemas.Item.from_orm, items))
+
+async def create_items(user: _schemas.User, db: _orm.Session, item: _schemas.ItemCreate):
+    item = _models.Item(**item.dict(), owner_id=user.id)
+    db.add(item)
+    db.commit()
+    db.refresh(item)
+    return _schemas.Item.from_orm(item)

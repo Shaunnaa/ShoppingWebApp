@@ -14,7 +14,7 @@ class User(_database.Base):
     hashed_password = _sql.Column(_sql.String)
 
     leads = _orm.relationship("Lead", back_populates="owner")
-
+    items = _orm.relationship("Item", back_populates="owner")
     def verify_password(self, password: str):
         return _hash.bcrypt.verify(password, self.hashed_password)
 
@@ -46,3 +46,5 @@ class Item(_database.Base):
     offer_expiration_date = _sql.Column(_sql.DateTime, default=_dt.datetime.utcnow)
     image = _sql.Column(_sql.String, index=True)
     quantity = _sql.Column(_sql.Integer, index=True, default="1")
+    
+    owner = _orm.relationship("User", back_populates="items")

@@ -43,7 +43,7 @@ class Lead(_LeadBase):
         orm_mode = True
 
 class _ItemBase(_pydantic.BaseModel):
-    name: str
+    item_name: str
     category: str
     description: str
     original_price: float 
@@ -52,7 +52,7 @@ class _ItemBase(_pydantic.BaseModel):
     image: str
     quantity: int 
 
-class ItemCreate(_LeadBase):
+class ItemCreate(_ItemBase):
     pass
 
 class Item(_ItemBase):

@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi import APIRouter
+from typing import List
+import fastapi as _fastapi
 from pydantic import BaseModel
 from models import items, data
+import sqlalchemy.orm as _orm
+import services as _services, schemas as _schemas
 
 app = FastAPI()
 
@@ -11,13 +15,14 @@ api = APIRouter(
     responses={404: {"message": "Not found"}}
 )
 
-@api.get("/AllProducts")
-async def get_all_products():
-    return data.items
+@api.get("/AllProducts", response_model=List[_schemas.Item])
+async def get_allproduct(user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    return await _services.get_allproduct(user=user, db=db)
 
-@api.post("/NewProduct")
-async def add_new_product(item: items):
-    return {"item_name": item.name, "item_price": item.original_price}
+
+@api.post("/NewProduct", response_model=_schemas.Item)
+async def add_new_product(item: _schemas.ItemCreate, user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    return await _services.create_items(user=user, db=db, item=item)
 
 
 @api.get("/GetProducts/{product_id}")
