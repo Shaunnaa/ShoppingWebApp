@@ -32,3 +32,17 @@ class Lead(_database.Base):
     date_last_updated = _sql.Column(_sql.DateTime, default=_dt.datetime.utcnow)
 
     owner = _orm.relationship("User", back_populates="leads")
+
+class Item(_database.Base):
+    __tablename__ = "items"
+    id = _sql.Column(_sql.Integer, primary_key=True, index=True)
+    owner_id = _sql.Column(_sql.Integer, _sql.ForeignKey("users.id"))
+    item_name = _sql.Column(_sql.String, index=True)
+    category = _sql.Column(_sql.String, index=True)
+    description = _sql.Column(_sql.String, index=True)
+    original_price = _sql.Column(_sql.Float, index=True)
+    discount_price = _sql.Column(_sql.Float, index=True)
+    percent_discount = _sql.Column(_sql.Integer, index=True)
+    offer_expiration_date = _sql.Column(_sql.DateTime, default=_dt.datetime.utcnow)
+    image = _sql.Column(_sql.String, index=True)
+    quantity = _sql.Column(_sql.Integer, index=True, default="1")

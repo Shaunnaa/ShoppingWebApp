@@ -41,3 +41,24 @@ class Lead(_LeadBase):
 
     class Config:
         orm_mode = True
+
+class _ItemBase(_pydantic.BaseModel):
+    name: str
+    category: str
+    description: str
+    original_price: float 
+    discount_price: float
+    percent_discount: int
+    image: str
+    quantity: int 
+
+class ItemCreate(_LeadBase):
+    pass
+
+class Item(_ItemBase):
+    id: int
+    owner_id: int
+    offer_expiration_date: _dt.datetime
+
+    class Config:
+        orm_mode = True
