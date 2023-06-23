@@ -8,6 +8,7 @@ import {Login} from './Login';
 import Forget from './Forget';
 import Cartfix from './Cart/Cartfix';
 import { UserContext } from "./context/UserContext";
+import AppCart from "./Cart/AppCart";
 
 function App() {
 
@@ -68,7 +69,7 @@ function App() {
             <Forget/>
           </Route>
           <Route exact path="/Cartfix">
-            <Cartfix/>
+            <AppCart/>
           </Route>
           <Route exact path="/">
             <All></All>
