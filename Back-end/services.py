@@ -139,3 +139,27 @@ async def create_items(user: _schemas.User, db: _orm.Session, item: _schemas.Ite
     db.commit()
     db.refresh(item)
     return _schemas.Item.from_orm(item)
+
+async def _item_selector(product_id: int, user: _schemas.User, db: _orm.Session):
+    item = (
+        db.query(_models.Item)
+        .filter_by(owner_id=user.id)
+        .filter(_models.Item.id == product_id)
+        .first()
+    )
+
+    if item is None:
+        raise _fastapi.HTTPException(status_code=404, detail="Product does not exist")
+
+    return item
+
+async def get_item(product_id: int, user: _schemas.User, db: _orm.Session):
+    item = await _item_selector(product_id=product_id, user=user, db=db)
+
+    return _schemas.Item.from_orm(item)
+
+async def delete_item(product_id: int, user: _schemas.User, db: _orm.Session):
+    item = await _item_selector(product_id, user, db)
+
+    db.delete(item)
+    db.commit()

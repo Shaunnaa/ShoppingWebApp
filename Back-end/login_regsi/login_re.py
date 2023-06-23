@@ -48,7 +48,7 @@ async def get_leads(user: _schemas.User = _fastapi.Depends(_services.get_current
 
 @app.get("/api/leads/{lead_id}", status_code=200)
 async def get_leads(lead_id: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
-    return await _services.get_leads(lead_id, user, db)
+    return await _services.get_lead(lead_id, user, db)
 
 @app.delete("/api/leads/{lead_id}", status_code=204)
 async def delete_lead(lead_id: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
