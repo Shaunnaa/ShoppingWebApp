@@ -2,6 +2,8 @@
 from pydantic import BaseModel, Field
 import datetime as dt
 from datetime import datetime
+from pydantic import BaseModel
+
 
 
 class items(BaseModel):
@@ -64,8 +66,28 @@ class data():
             percent_discount=10,
             offer_expiration_date=datetime.utcnow(),
             image="image4"
-            ) 
+            ),
+        
+        5: items(
+            id=5,
+            name="item5",
+            category="category5",
+            description="description5",
+            original_price=500,
+            discount_price=450,
+            percent_discount=10,
+            offer_expiration_date=datetime.utcnow(),
+            image="image5"
+            )
+
+
+            
     }
+
+    @classmethod
+    def get_all_items(cls):
+        return list(cls.items.values())
+
     
     
 
