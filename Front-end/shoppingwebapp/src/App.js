@@ -9,7 +9,7 @@ import Forget from './Forget';
 import Cartfix from './Cart/Cartfix';
 import { UserContext } from "./context/UserContext";
 import AppCart from "./Cart/AppCart";
-
+import Logout from "./Logout";
 function App() {
 
   const [message, setMessage] = useState("");
@@ -74,7 +74,9 @@ function App() {
           <Route exact path="/">
             <All></All>
           </Route>
-          
+          <Route exact path="/logout">
+            <Logout/>
+          </Route>
         </Switch>
       </div>
     </Router>
