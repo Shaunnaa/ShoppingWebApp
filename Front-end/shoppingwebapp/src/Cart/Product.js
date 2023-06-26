@@ -3,13 +3,14 @@ const productArray = [
         id: "1",
         title:"Coffee",
         price: 4.99
-    },{
+    },
+    {
         id: "2",
         title:"fan",
         price: 200
     },
     {
-        id: "3",
+        id: "5",
         title:"computer",
         price: 20000
     }

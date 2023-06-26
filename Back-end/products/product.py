@@ -15,19 +15,24 @@ api = APIRouter(
     responses={404: {"message": "Not found"}}
 )
 
-@api.get("/AllProducts", response_model=List[_schemas.Item])
-async def get_allproduct(user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
-    return await _services.get_allproduct(user=user, db=db)
+@api.get("/AllProducts", response_model=List[items])
+async def get_all_products():
+    # Get all the values from the dictionary and return as a list
+    return data.get_all_items()
 
 
 @api.post("/NewProduct", response_model=_schemas.Item)
 async def add_new_product(item: _schemas.ItemCreate, user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
     return await _services.create_items(user=user, db=db, item=item)
 
+@api.get("/GetProducts/{product_id}", response_model=items)
+async def get_product_by_id(product_id: int):
+   return data.items.get(product_id)
 
-@api.get("/GetProducts/{product_id}", status_code=200)
-async def get_product_by_id(product_id: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
-   return await _services.get_item(product_id, user, db)
+
+# @api.get("/GetProducts/{product_id}", status_code=200)
+# async def get_product_by_id(product_id: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
+#    return await _services.get_item(product_id, user, db)
 
 # @api.get("/GetProducts/{product_category}")
 # async def get_product_by_category(product_category: str):

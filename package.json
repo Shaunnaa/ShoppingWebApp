@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "react-bootstrap": "^2.7.4",
     "react-redux": "^8.1.0",
