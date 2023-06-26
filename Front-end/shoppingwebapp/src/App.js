@@ -30,10 +30,16 @@ function App() {
     } else {
       setMessage(data.message);
     }
+
+    if (token == null){
+      localStorage.clear();
+    }
+  
   };
 
   useEffect(() => {
     getWelcomeMessage();
+    
   },[])
 
   return (
@@ -46,7 +52,8 @@ function App() {
             {
               !token ? (
                 <div className="columns">
-                  <Login />
+                  <Login /> 
+                  
                 </div>
               ) : (
                 <Redirect to="/" />
@@ -75,7 +82,15 @@ function App() {
             <All></All>
           </Route>
           <Route exact path="/logout">
-            <Logout/>
+          {
+              !token ? (
+                <div className="columns">
+                  <Redirect to="/" />
+                </div>
+              ) : (
+                <Logout />
+              )
+            }
           </Route>
         </Switch>
       </div>
