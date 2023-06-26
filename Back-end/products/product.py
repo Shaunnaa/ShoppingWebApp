@@ -16,8 +16,8 @@ api = APIRouter(
 )
 
 @api.get("/AllProducts", response_model=List[_schemas.Item])
-async def get_allproduct(user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
-    return await _services.get_allproduct(user=user, db=db)
+async def get_allproduct(db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    return await _services.get_allproduct(db=db)
 
 
 @api.post("/NewProduct", response_model=_schemas.Item)
