@@ -26,8 +26,8 @@ async def add_new_product(item: _schemas.ItemCreate, user: _schemas.User = _fast
 
 
 @api.get("/GetProducts/{product_id}", status_code=200)
-async def get_product_by_id(product_id: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user), db: _orm.Session = _fastapi.Depends(_services.get_db)):
-   return await _services.get_item(product_id, user, db)
+async def get_product_by_id(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
+   return await _services.get_item(product_id, db)
 
 # @api.get("/GetProducts/{product_category}")
 # async def get_product_by_category(product_category: str):
