@@ -15,10 +15,16 @@ api = APIRouter(
     responses={404: {"message": "Not found"}}
 )
 
+<<<<<<< HEAD
 @api.get("/AllProducts", response_model=List[items])
 async def get_all_products():
     # Get all the values from the dictionary and return as a list
     return data.get_all_items()
+=======
+@api.get("/AllProducts", response_model=List[_schemas.Item])
+async def get_allproduct(db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    return await _services.get_allproduct(db=db)
+>>>>>>> 68243c170f5c1962ad451721bb6188a1a1f381fd
 
 
 @api.post("/NewProduct", response_model=_schemas.Item)
