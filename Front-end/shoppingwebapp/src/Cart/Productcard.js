@@ -38,114 +38,6 @@
 
 
 
-// import { Card, Button, Form, Row, Col } from 'react-bootstrap'
-// import { Cardcontext, Cartcontext, CartProvider } from './CartContext.js';
-// import { useContext, useEffect, useState } from 'react';
-
-// const Cardshop = (props) => {
-//     const product = props.product;
-//     const cart = useContext(Cartcontext);
-//     const productquantity = cart.getquantity(product.id);
-//     console.log(cart.items);
-
-//     const [productData, setProductData] = useState([]);
-
-//     useEffect(() => {
-//         // Fetch the product data from the API
-//         fetch('/product/AllProducts')
-//             .then(response => response.json())
-//             .then(data => setProductData(data))
-//             .catch(error => console.log(error));
-//     }, []);
-
-//     return (
-//         <Card>
-//             <Card.Body>
-//                 {productData.length > 0 && (
-//                     <>
-//                         <Card.Title>{productData[product.id-1]?.name}</Card.Title>
-//                         <Card.Text>{productData[product.id-1]?.original_price} Bath</Card.Text>
-//                         <Card.Text>{productData[product.id-1]?.discount_price} Bath</Card.Text>
-//                     </>
-//                 )}
-//                 {productquantity > 0 ? (
-//                     <>
-//                         <Form as={Row}>
-//                             <Form.Label column="true" sm="6" >
-//                                 In Cart: {productquantity}
-//                             </Form.Label>
-//                             <Col sm="6">
-//                                 <Button sm="6" onClick={() => cart.addonetocart(product.id)} className="mx-2">+</Button>
-//                                 <Button sm="6" onClick={() => cart.removeonefromcart(product.id)} className="mx-2">-</Button>
-//                             </Col>
-//                         </Form>
-//                         <Button variant="danger" onClick={() => cart.deletefromcart(product.id)}>Remove from cart</Button>
-//                     </>
-//                 ) : (
-//                     <Button variant="primary" onClick={() => cart.addonetocart(product.id)}>Add to cart</Button>
-//                 )}
-//             </Card.Body>
-//         </Card>
-//     );
-// }
-
-// export default Cardshop;
-
-
-// import { Card, Button, Form, Row, Col } from 'react-bootstrap';
-// import { Cartcontext } from './CartContext.js';
-// import { useContext, useEffect, useState } from 'react';
-
-// const Cardshop = ({ productId, fetchProductData }) => {
-//   const cart = useContext(Cartcontext);
-//   const productquantity = cart.getquantity(productId);
-//   console.log(cart.items);
-
-//   const [productData, setProductData] = useState(null);
-
-//   useEffect(() => {
-//     fetchProductData(productId);
-//     // Fetch the product data from the API
-//     fetch(`/product/GetProducts/${productId}`)
-//       .then(response => response.json())
-//       .then(data => setProductData(data))
-//       .catch(error => console.log(error));
-//   }, [productId]);
-
-//   return (
-//     <Card>
-//       <Card.Body>
-//         {productData && (
-//           <>
-//             <Card.Title>{productData[productId]?.name}</Card.Title>
-//             <Card.Text>{productData.original_price} Bath</Card.Text>
-//             <Card.Text>{productData.discount_price} Bath</Card.Text>
-//           </>
-//         )}
-//         {productquantity > 0 ? (
-//           <>
-//             <Form as={Row}>
-//               <Form.Label column="true" sm="6">
-//                 In Cart: {productquantity}
-//               </Form.Label>
-//               <Col sm="6">
-//                 <Button sm="6" onClick={() => cart.addonetocart(productId)} className="mx-2">+</Button>
-//                 <Button sm="6" onClick={() => cart.removeonefromcart(productId)} className="mx-2">-</Button>
-//               </Col>
-//             </Form>
-//             <Button variant="danger" onClick={() => cart.deletefromcart(productId)}>Remove from cart</Button>
-//           </>
-//         ) : (
-//           <Button variant="primary" onClick={() => cart.addonetocart(productId)}>Add to cart</Button>
-//         )}
-//       </Card.Body>
-//     </Card>
-//   );
-// }
-
-// export default Cardshop;
-
-
 import { Card, Button, Form, Row, Col } from 'react-bootstrap';
 import { Cartcontext } from './CartContext.js';
 import { useContext, useEffect, useState } from 'react';
@@ -167,12 +59,52 @@ const Cardshop = ({ productId }) => {
     fetchProductData(productId);
   }, [productId]);
 
+  const [cartItems, setCartItems] = useState([]);
+  const addToCart = () => {
+    // fetch(`/product/cart/add`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ product_id: productId }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     // Handle the response if necessary
+    //     console.log(data);
+    //     cart.addonetocart(productId);
+    //     const productPrice = { originalPrice: productData.original_price, discountPrice: productData.discount_price };
+    //     cart.updateProductPrice(productId, productPrice); // Add this line to update the price in the cart context
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    const newCartItem = {
+      id: productData.id,
+      name: productData.name,
+      originalPrice: productData.price.originalPrice,
+      discountPrice: productData.price.discountPrice,
+      quantity: productData.quantity,
+    };
+
+    setCartItems([...cartItems, newCartItem]);
+  };
+  
+  const removeFromCart = () => {
+    cart.removeonefromcart(productId);
+  };
+    
+  const deleteFromCart = () => {
+    cart.deletefromcart(productId);
+  };
+
   return (
     <Card>
       <Card.Body>
         {productData && (
           <>
-            <Card.Title>{productData && productData[productId]?.name}</Card.Title>
+            <Card.Title>{productData.image}</Card.Title>
+            <Card.Title>{productData.item_name}</Card.Title>
             <Card.Text>{productData.original_price} Bath</Card.Text>
             <Card.Text>{productData.discount_price} Bath</Card.Text>
           </>
@@ -184,18 +116,20 @@ const Cardshop = ({ productId }) => {
                 In Cart: {productquantity}
               </Form.Label>
               <Col sm="6">
-                <Button sm="6" onClick={() => cart.addonetocart(productId)} className="mx-2">+</Button>
-                <Button sm="6" onClick={() => cart.removeonefromcart(productId)} className="mx-2">-</Button>
+                <Button sm="6" onClick={addToCart} className="mx-2">+</Button>
+                <Button sm="6" onClick={removeFromCart} className="mx-2">-</Button>
               </Col>
             </Form>
-            <Button variant="danger" onClick={() => cart.deletefromcart(productId)}>Remove from cart</Button>
+            <Button variant="danger" onClick={deleteFromCart}>Remove from cart</Button>
           </>
         ) : (
-          <Button variant="primary" onClick={() => cart.addonetocart(productId)}>Add to cart</Button>
+          <Button variant="primary" onClick={addToCart}>Add to cart</Button>
         )}
       </Card.Body>
     </Card>
   );
 }
+
+
 
 export default Cardshop;

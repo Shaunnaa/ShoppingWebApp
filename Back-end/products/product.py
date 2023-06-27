@@ -63,6 +63,7 @@ async def add_product_to_cart(product_id: int):
         item.quantity += 1
     else:
         cart.append(item)
+    return item
 
 @api.put("/cart/removequantity/{product_id}")
 async def remove_quantity_to_cart(product_id: int):

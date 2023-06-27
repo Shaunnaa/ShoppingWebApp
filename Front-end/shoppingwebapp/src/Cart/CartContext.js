@@ -8,7 +8,8 @@ export const Cartcontext = createContext( {
     removeonefromcart: () => {},
     deletefromcart: () => {},
     gettotalcost: () => {},
-    getallitems: () => {}
+    getallitems: () => {},
+    updateProductPrice: () => {} // Add this line to the context
 });
 export function CartProvider({children}){
     const [nowproduct,setproduct] = useState([]);
@@ -75,6 +76,16 @@ export function CartProvider({children}){
         return totalitems;
 
     }
+    function updateProductPrice(id, price) {
+        setproduct((prevProducts) => {
+          return prevProducts.map((product) => {
+            if (product.id === id) {
+              return { ...product, price: price };
+            }
+            return product;
+          });
+        });
+      }
     const contextvalue={
         items: nowproduct, 
         getquantity, 
@@ -82,7 +93,8 @@ export function CartProvider({children}){
         removeonefromcart,
         deletefromcart,
         gettotalcost,
-        getallitems
+        getallitems,
+        updateProductPrice // Add this line to the context value
     }
     
     return (
