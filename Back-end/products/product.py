@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+import http3
+import json
+from fastapi import FastAPI, Request
 from fastapi import APIRouter
 from typing import List
 import fastapi as _fastapi
@@ -6,6 +8,7 @@ from pydantic import BaseModel
 from models import items, data
 import sqlalchemy.orm as _orm
 import services as _services, schemas as _schemas
+
 
 app = FastAPI()
 
@@ -48,6 +51,15 @@ async def delete_product_by_id(product_id: int,user: _schemas.User = _fastapi.De
     return {"message", "Successfully Deleted"}
 
 
+client = http3.AsyncClient()
+
+async def call_api(url: str):
+    r = await client.get(url)
+    json_data = json.loads(r.text)
+    pretty_json = json.dumps(json_data)
+    return pretty_json
+
+
 #------ cart ------
 cart = []
 
@@ -58,12 +70,15 @@ def get_cart():
 @api.post("/cart/add")
 async def add_product_to_cart(product_id: int):
     item = data.items.get(product_id)
+    # get_id_item = f'http://127.0.0.1:8000/product/GetProducts/{product_id}' # call the item from the product id and get the json
+    # item = await call_api(get_id_item)
     if item in cart:
         # If the item is already in the cart, increase the quantity
         item.quantity += 1
     else:
         cart.append(item)
     return item
+    
 
 @api.put("/cart/removequantity/{product_id}")
 async def remove_quantity_to_cart(product_id: int):

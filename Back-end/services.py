@@ -168,8 +168,8 @@ async def _item_selector(product_id: int, db: _orm.Session):
 
 async def get_item(product_id: int, db: _orm.Session):
     item = await _item_selector(product_id=product_id, db=db)
-
     return _schemas.Item.from_orm(item)
+    # return item
 
 async def delete_item(product_id: int, user: _schemas.User, db: _orm.Session):
     item = await _item_selector_user(product_id, user, db)

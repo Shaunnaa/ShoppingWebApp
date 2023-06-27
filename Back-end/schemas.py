@@ -49,6 +49,7 @@ class _ItemBase(_pydantic.BaseModel):
     original_price: float 
     discount_price: float
     percent_discount: int
+    offer_expiration_date: _dt.datetime
     image: str
     quantity: int 
 
@@ -58,7 +59,6 @@ class ItemCreate(_ItemBase):
 class Item(_ItemBase):
     id: int
     owner_id: int
-    offer_expiration_date: _dt.datetime
 
     class Config:
         orm_mode = True
