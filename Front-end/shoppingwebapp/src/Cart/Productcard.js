@@ -59,35 +59,25 @@ const Cardshop = ({ productId }) => {
     fetchProductData(productId);
   }, [productId]);
 
-  const [cartItems, setCartItems] = useState([]);
   const addToCart = () => {
-    // fetch(`/product/cart/add`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ product_id: productId }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     // Handle the response if necessary
-    //     console.log(data);
-    //     cart.addonetocart(productId);
-    //     const productPrice = { originalPrice: productData.original_price, discountPrice: productData.discount_price };
-    //     cart.updateProductPrice(productId, productPrice); // Add this line to update the price in the cart context
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-    const newCartItem = {
-      id: productData.id,
-      name: productData.name,
-      originalPrice: productData.price.originalPrice,
-      discountPrice: productData.price.discountPrice,
-      quantity: productData.quantity,
-    };
-
-    setCartItems([...cartItems, newCartItem]);
+    fetch(`/product/cart/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ product_id: productId }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response if necessary
+        console.log(data);
+        cart.addonetocart(productId);
+        const productPrice = { originalPrice: productData.original_price, discountPrice: productData.discount_price };
+        cart.updateProductPrice(productId, productPrice); // Add this line to update the price in the cart context
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   
   const removeFromCart = () => {
