@@ -67,30 +67,36 @@ cart = []
 def get_cart():
     return cart
 
+
 @api.post("/cart/add")
-async def add_product_to_cart(product_id: int):
-    item = data.items.get(product_id)
-    # get_id_item = f'http://127.0.0.1:8000/product/GetProducts/{product_id}' # call the item from the product id and get the json
+async def add_product_to_cart(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    get_id_item = f'http://127.0.0.1:8000/product/GetProducts/{product_id}' # call the item from the product id and get the json
+    # item = data.items.get(product_id)
     # item = await call_api(get_id_item)
+    item = await _services.get_item(product_id, db)
     if item in cart:
         # If the item is already in the cart, increase the quantity
-        item.quantity += 1
+        item.quantity += 1 # quantity in data
     else:
         cart.append(item)
     return item
+    # return cart
     
 
 @api.put("/cart/removequantity/{product_id}")
-async def remove_quantity_to_cart(product_id: int):
-    item = data.items.get(product_id)
+async def remove_quantity_to_cart(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    # item = data.items.get(product_id)
+    item = await _services.get_item(product_id, db)
+    
     if item in cart and item.quantity > 1:
-        item.quantity -= 1
+        item.quantity -= 1 
     else:
         cart.remove(item)
 
 @api.delete("/cart/remove/{item_id}")
-async def remove_product_from_cart(product_id: int):
-    cart.remove(data.items.get(product_id))
+async def remove_product_from_cart(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
+    item = await _services.get_item(product_id, db)
+    cart.remove(item)
 
 @api.delete("/cart/remove/all")
 async def remove_all_products_from_cart():
