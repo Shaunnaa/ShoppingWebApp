@@ -50,6 +50,14 @@ async def delete_product_by_id(product_id: int,user: _schemas.User = _fastapi.De
     await _services.delete_item(product_id, user, db)
     return {"message", "Successfully Deleted"}
 
+@api.get("/GetProducts_quantity/{product_id}", status_code=200)
+async def get_product_quantity(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
+   return await _services.get_quantity(product_id, db)
+
+@api.put("/UpdateProducts_quantity/{product_id}", status_code=200)
+async def get_product_quantity(product_id: int,quantity: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user) ,db: _orm.Session = _fastapi.Depends(_services.get_db)):
+   return await _services.update_quantity(product_id,quantity,user, db)
+
 
 client = http3.AsyncClient()
 
@@ -68,9 +76,9 @@ def get_cart():
     return cart
 
 
-@api.post("/cart/add")
+@api.post("/cart/add/{product_id}")
 async def add_product_to_cart(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
-    get_id_item = f'http://127.0.0.1:8000/product/GetProducts/{product_id}' # call the item from the product id and get the json
+    # get_id_item = f'http://127.0.0.1:8000/product/GetProducts/{product_id}' # call the item from the product id and get the json
     # item = data.items.get(product_id)
     # item = await call_api(get_id_item)
     item = await _services.get_item(product_id, db)

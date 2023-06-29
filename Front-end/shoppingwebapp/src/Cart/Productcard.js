@@ -60,7 +60,7 @@ const Cardshop = ({ productId }) => {
   }, [productId]);
 
   const addToCart = () => {
-    fetch(`/product/cart/add`, {
+    fetch(`/product/cart/add/${productId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

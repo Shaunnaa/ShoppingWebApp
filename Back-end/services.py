@@ -166,6 +166,14 @@ async def _item_selector(product_id: int, db: _orm.Session):
 
     return item
 
+async def _item_quantity(product_id: int, db: _orm.Session):
+    item = await _item_selector(product_id=product_id, db=db)
+
+    if item is None:
+        raise _fastapi.HTTPException(status_code=404, detail="Product does not exist")
+
+    return item.quantity
+
 async def get_item(product_id: int, db: _orm.Session):
     item = await _item_selector(product_id=product_id, db=db)
     return _schemas.Item.from_orm(item)
@@ -176,3 +184,15 @@ async def delete_item(product_id: int, user: _schemas.User, db: _orm.Session):
 
     db.delete(item)
     db.commit()
+
+async def get_quantity(product_id: int, db: _orm.Session):
+    return await _item_quantity(product_id=product_id, db=db)
+
+async def update_quantity(product_id: int,quantity: int, user: _schemas.User ,db: _orm.Session):
+    itme_db = await _item_selector_user(product_id, user, db)
+    itme_db.quantity = quantity
+    
+    db.commit()
+    db.refresh(itme_db)
+
+    return _schemas.Item.from_orm(itme_db)
