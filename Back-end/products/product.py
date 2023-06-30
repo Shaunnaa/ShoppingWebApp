@@ -1,5 +1,3 @@
-import http3
-import json
 from fastapi import FastAPI, Request
 from fastapi import APIRouter
 from typing import List
@@ -54,18 +52,18 @@ async def delete_product_by_id(product_id: int,user: _schemas.User = _fastapi.De
 async def get_product_quantity(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
    return await _services.get_quantity(product_id, db)
 
-@api.put("/UpdateProducts_quantity/{product_id}", status_code=200)
-async def get_product_quantity(product_id: int,quantity: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user) ,db: _orm.Session = _fastapi.Depends(_services.get_db)):
+@api.put("/UpdateProducts_quantity/{product_id}/{quantity}", status_code=200)
+async def update_product_quantity(product_id: int,quantity: int,user: _schemas.User = _fastapi.Depends(_services.get_current_user) ,db: _orm.Session = _fastapi.Depends(_services.get_db)):
    return await _services.update_quantity(product_id,quantity,user, db)
 
 
-client = http3.AsyncClient()
+# client = http3.AsyncClient()
 
-async def call_api(url: str):
-    r = await client.get(url)
-    json_data = json.loads(r.text)
-    pretty_json = json.dumps(json_data)
-    return pretty_json
+# async def call_api(url: str):
+#     r = await client.get(url)
+#     json_data = json.loads(r.text)
+#     pretty_json = json.dumps(json_data)
+#     return pretty_json
 
 
 #------ cart ------
@@ -88,7 +86,6 @@ async def add_product_to_cart(product_id: int, db: _orm.Session = _fastapi.Depen
     else:
         cart.append(item)
     return item
-    # return cart
     
 
 @api.put("/cart/removequantity/{product_id}")
@@ -100,8 +97,9 @@ async def remove_quantity_to_cart(product_id: int, db: _orm.Session = _fastapi.D
         item.quantity -= 1 
     else:
         cart.remove(item)
+        return {"message": "Successfully remove"}
 
-@api.delete("/cart/remove/{item_id}")
+@api.delete("/cart/remove/{product_id}")
 async def remove_product_from_cart(product_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
     item = await _services.get_item(product_id, db)
     cart.remove(item)
