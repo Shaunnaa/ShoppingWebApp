@@ -15,6 +15,7 @@ const productArray = [
         price: 20000
     }
 ]
+
 function getproductdata(id){
     let productData = productArray.find(product => product.id === id)
     if(productData === undefined){

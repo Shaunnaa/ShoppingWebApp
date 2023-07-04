@@ -83,8 +83,8 @@ const Store = () => {
         <Row xs={1} md={3} className="g-4">
             {productIds.map((productId, index) => (
             <Col align="center" key={index}>
-                <CartProvider> {/* Wrap the Cardshop component with CartProvider */}
-                    <Cardshop productId={productId} productData={productData} />
+                <CartProvider> {/* Wrap the Cardshop component with CartProvider */
+                    <Cardshop productId={productId} productData={productData} />}
                 </CartProvider>
             </Col>
             ))}

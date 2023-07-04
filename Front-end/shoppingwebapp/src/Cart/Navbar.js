@@ -63,9 +63,10 @@ const Navbarcom = () => {
   const whatShow = () => setShow(true);
 
   const cart = useContext(Cartcontext);
-  const { items, getallitems } = cart;
-  const countitem = getallitems(); // Get the updated cart count
   
+   // Get the updated cart count
+   
+   
 
   // Fetch the data from the API
   useEffect(() => {
@@ -73,14 +74,14 @@ const Navbarcom = () => {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        const updatedCartCount = data.reduce((total, product) => total + product.quantity, 0);
-        setCartCount(updatedCartCount);
+        const updatedCartCount = cart.items.reduce((total, product) => total + product.quantity, 0);
+        
       })
       .catch((error) => console.log(error));
   
     // Update the cart count whenever it changes in the cart context
-    const countItem = cart.getallitems();
-    setCartCount(countItem);
+   // const countItem = cart.getallitems();
+    
   
     const updatedItems = cart.items.map((item) => {
       const productPrice = {
@@ -94,14 +95,16 @@ const Navbarcom = () => {
   
   const [productData, setProductData] = useState(null);
   const [productId, setProductId] = useState(null);
-
+  const x= cart.getallitems();
   return (
-    <>
+   
+    <> 
       <Navbar expand="sm">
         <NavbarBrand href="/">Ecommerce Store</NavbarBrand>
         <Navbar.Toggle></Navbar.Toggle>
         <Navbar.Collapse className="justify-content-end">
-          <Button onClick={whatShow}>Cart: {countitem} Item</Button> {/* Display updated cart count */}
+          
+          <Button onClick={whatShow}>Cart: {cart.items.length} Item</Button> {/* Display updated cart count */}
         </Navbar.Collapse>
       </Navbar>
 
@@ -110,16 +113,17 @@ const Navbarcom = () => {
           <Modal.Title>Shopping Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {items.length > 0 ? (
+          {cart.items.length > 0 ? (
             <>
               <p>Items in your cart</p>
-              {items.map((currentProduct) => (
-                <div key={currentProduct.id}>
+              <p>{cart.items.length}</p>
+              {cart.items.map((currentProduct) => (
+                <Cartproduct key={currentProduct.id}>
                   <h3>{currentProduct.name}</h3>
                   <p>Original Price: {currentProduct.price.originalPrice} Bath</p>
                   <p>Discount Price: {currentProduct.price.discountPrice} Bath</p>
                   <p>Quantity: {currentProduct.quantity}</p>
-                </div>
+                </Cartproduct>
               ))}
               <Button variant="primary" onClick={handleClose}>
                 Go to cart
@@ -127,6 +131,7 @@ const Navbarcom = () => {
             </>
           ) : (
             <p>No items in the cart</p>
+           
           )}
         </Modal.Body>
 
@@ -148,8 +153,6 @@ const Navbarcom = () => {
             <h1>Sorry, there are no items in the cart</h1>
           )}
         </Modal.Body> */}
-
-
       </Modal>
     </>
   );

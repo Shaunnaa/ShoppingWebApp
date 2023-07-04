@@ -22,6 +22,7 @@ export function CartProvider({children}){
     }
     function addonetocart(id){
         const quantity = getquantity(id);
+        
         if(quantity===0){ //product not in cart
             setproduct(
                 [...nowproduct,{
@@ -37,6 +38,7 @@ export function CartProvider({children}){
                 )
             )
         }
+        console.log(getallitems());
         return quantity;
     }
     function deletefromcart(id){
@@ -51,7 +53,6 @@ export function CartProvider({children}){
             deletefromcart(id);
         }else{
             setproduct(
-              
                 nowproduct.map(
                     product=> product.id ===id?{...product,quantity: product.quantity-1}:product
                 )
@@ -60,21 +61,23 @@ export function CartProvider({children}){
     } 
     function gettotalcost(){
         let total= 0;
+        
         nowproduct.map((cartItem) => {
             const productdata=getproductdata(cartItem.id);
-            total+=(productdata.price * cartItem.quantity);
+            total+=(productdata.original_price * cartItem.quantity);
         });
+        
         return total;
 
     }
     function getallitems(){
         let totalitems= 0;
+
         nowproduct.map((cartItem) => {
-           
             totalitems+=(cartItem.quantity);
         });
+       
         return totalitems;
-
     }
     function updateProductPrice(id, price) {
         setproduct((prevProducts) => {
@@ -86,7 +89,7 @@ export function CartProvider({children}){
           });
         });
       }
-    const contextvalue={
+    const contextvalue = {
         items: nowproduct, 
         getquantity, 
         addonetocart,
@@ -94,7 +97,7 @@ export function CartProvider({children}){
         deletefromcart,
         gettotalcost,
         getallitems,
-        updateProductPrice // Add this line to the context value
+        updateProductPrice 
     }
     
     return (

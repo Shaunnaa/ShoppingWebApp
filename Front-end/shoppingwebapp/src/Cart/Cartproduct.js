@@ -9,9 +9,9 @@ function Cartproduct (props){
     const data = getproductdata(id);
     return (
         <>
-            <h3>{data.title}</h3>
+            <h3>{data.item_name}</h3>
             <p>{quantity} total</p>
-            <p>{quantity*data.price.toFixed(2)} Bath</p>
+            <p>{quantity*data.original_price.toFixed(2)} Bath</p>
             <Button sm="6" onClick={()=> cart.addonetocart(data.id)} className="mx-2" >+</Button>
             <Button sm="6" onClick={()=> cart.removeonefromcart(data.id)} className="mx-2">-</Button>
             <hr>
