@@ -47,7 +47,7 @@ async function fetchProductData() {
     } catch (error) {
       console.error('Error fetching product data:', error);
     }
-]
+  }
 function getproductdata(id){
     let productData = productArray.find(product => product.id === id)
     if(productData === undefined){

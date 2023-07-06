@@ -21,6 +21,10 @@ export const UserProvider = (props) => {
         setToken(null);
       }
       localStorage.setItem("awesomeLeadsToken", token);
+      if (token == null){
+        // localStorage.setItem("awesomeLeadsToken", 1);
+        localStorage.clear();
+      }
     };
     fetchUser();
   }, [token]);
